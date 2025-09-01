@@ -1,10 +1,11 @@
 .main {
     max-width: 95%;
-    margin: 0 auto;
+    margin: 80px auto 0;
     padding: 2rem;
     display: grid;
     grid-template-columns: 1fr 300px;
     gap: 2rem;
+    position: relative;
 }
 
 .section {
@@ -14,6 +15,10 @@
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     animation: fadeInUp 0.6s ease-out;
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 200px;
 }
 
 .section-title {
@@ -47,6 +52,9 @@
     text-align: center;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
+    position: sticky;
+    top: 100px;
+    z-index: 10;
 }
 
 .hero-section .section-title {
@@ -66,9 +74,28 @@
 }
 
 .about-content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.floating-image {
+    float: right;
+    margin: 0 0 20px 20px;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 3px solid #667eea;
+    border-radius: 10px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .article {
@@ -78,6 +105,12 @@
     border-left: 4px solid #667eea;
     transition: transform 0.3s ease;
     height: fit-content;
+    position: relative;
+    display: block;
+    width: 100%;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .article:hover {
@@ -91,10 +124,64 @@
     margin-bottom: 1rem;
 }
 
+.services-intro {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 10px;
+    border-left: 5px solid #667eea;
+}
+
+.floating-stats {
+    float: left;
+    margin: 0 30px 20px 0;
+    position: relative;
+    width: 250px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 2px solid #667eea;
+}
+
+.stat-item {
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.stat-item h4 {
+    color: #667eea;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.services-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #495057;
+    margin: 0;
+}
+
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    clear: both;
 }
 
 .service-card {
@@ -107,6 +194,12 @@
     border: 2px solid transparent;
     position: relative;
     animation: fadeInUp 0.6s ease-out;
+    display: inline-block;
+    width: calc(33.333% - 20px);
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    min-height: 250px;
 }
 
 .service-card::before {
@@ -140,6 +233,8 @@
     height: fit-content;
     position: sticky;
     top: 100px;
+    width: 300px;
+    z-index: 5;
 }
 
 .sidebar-title {
@@ -198,10 +293,14 @@
     .main {
         grid-template-columns: 1fr;
         padding: 1rem;
+        margin-top: 120px;
     }
     
     .sidebar {
-        order: -1;
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
         margin-bottom: 2rem;
     }
     
@@ -213,11 +312,27 @@
         font-size: 2.5rem;
     }
     
-    .about-content {
-        grid-template-columns: 1fr;
+    .floating-image {
+        float: none;
+        margin: 0 auto 20px;
+        width: 150px;
+        height: 150px;
     }
     
-    .services-grid {
-        grid-template-columns: 1fr;
+    .floating-stats {
+        float: none;
+        margin: 0 auto 20px;
+        width: 100%;
+    }
+    
+    .service-card {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+    }
+    
+    .article {
+        float: none;
+        margin-right: 0;
     }
 } 
